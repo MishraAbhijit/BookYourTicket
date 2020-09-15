@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>BookyourTicket.com</title>
+<!-- Required meta tags -->
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<link rel="stylesheet" href="css/style.css" />
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+	integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+	crossorigin="anonymous">
+</head>
+<body class="bg-secondary">
+	<!-- Nav Bar -->
+	<nav class="shadow navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container">
+			<a href="index.html" class="navbar-brand font-weight-bolder"
+				style="color: blue;">BookyourTicket.com</a>
+			<div id="navbarId">
+				<ul class="navbar-nav">
+					<li class="nav-item active"><a href="index.html"
+						class="nav-link font-weight-bold"><span>Home</span></a></li>
+					<li class="nav-item"><a href="#"
+						class="nav-link font-weight-bold"><span>AboutUs</span></a></li>
+					<li class="nav-item"><a href="#"
+						class="nav-link font-weight-bold"><span>Service</span></a></li>
+					<li class="nav-item"><a href="#"
+						class="nav-link font-weight-bold"><span>Contact</span></a></li>
+					<li class="nav-item"><a href="login.html"
+						class="nav-link font-weight-bold"><span>Login</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Selector Start-->
+	<div class="container mt-3">
+		<div class="row d-flex">
+			<div class="shadow-lg col-10 container card mt-5">
+				<div class="row d-flex">
+					<button class="col-2 btn btn-default text-capitalize">
+						<img th:src="@{photos/airplane2.png}"><br> <b><span
+							class="text-primary">Flights</span></b>
+					</button>
+					<button class="col-2 btn btn-default text-capitalize">
+						<img th:src="@{photos/train.png}"><br> <span>Trains</span>
+					</button>
+					<button class="col-2 btn btn-default text-capitalize">
+						<img th:src="@{photos/bus.png}"><br> <span>Buses</span>
+					</button>
+					<button class="col-2 btn btn-default text-capitalize">
+						<img th:src="@{photos/hotel.png}"><br> <span>Hotels</span>
+					</button>
+					<button class="col-2 btn btn-default text-capitalize">
+						<img th:src="@{photos/taxi.png}"><br> <span>Cabs</span>
+					</button>
+					<button class="col-2 btn btn-default text-capitalize">
+						<img th:src="@{photos/more.png}"><br> <span>More</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Selector End -->
+
+	<!-- Search Box -->
+	<div class="container bg-light card">
+		<div class="row">
+			<div
+				class="col-6 pt-4 pl-4 text-left font-weight-bolder text-secondary">
+				<label class="radio-inline mr-2"> <input type="radio"
+					name="optradio" checked>ONEWAY
+				</label> <label class="radio-inline"> <input type="radio"
+					name="optradio">ROUNDTRIP
+				</label>
+			</div>
+			<div
+				class="col-6 pt-4 pr-4 text-right text-secondary font-weight-normal">
+				<h6>Book Domestic And International Flights</h6>
+			</div>
+		</div>
+		<hr style="border: 2px solid steelblue;" />
+
+		<div class="container">
+			<form action="search" method="get">
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th class="text-center text-secondary" style="width: 25%;">
+								<h6>FROM</h6>
+							</th>
+							<th class="text-center text-secondary" style="width: 25%;">
+								<h6>TO</h6>
+							</th>
+							<th class="text-center text-secondary" style="width: 25%;">
+								<h6>DATE</h6>
+							</th>
+							<th class="text-center text-secondary" style="width: 25%;">
+								<h6>Travellers & Class</h6>
+							</th>
+						</tr>
+					</thead>
+					<tbody>	
+						<tr>
+							<td><select data-style="btn-new"
+								class="form-control selectpicker font-weight-bolder" id="from"
+								name="from" style="background-color: whitesmoke; border: none;">
+									<option value="Hyderabad" selected>Hyderabad(HYD)</option>
+									<option value="Bhubaneswar">Bhubaneswar(BBS)</option>
+									<option value="Mumbai">Mumbai(BOM)</option>
+									<option value="Delhi">Delhi(DEL)</option>
+							</select></td>
+							<td><select data-style="btn-new"
+								class="form-control font-weight-bolder" id="to" name="to"
+								style="background-color: whitesmoke; border: none;">
+									<option value="Bhubaneswar" selected>Bhubaneswar(BBS)</option>
+									<option value="Delhi">Delhi(DEL)</option>
+									<option value="Hyderabad">Hyderabad(HYD)</option>
+									<option value="Mumbai">Mumbai(BOM)</option>
+							</select></td>
+							<td><input type="date" name="date" min="2010-01-01"
+								max="2030-12-31" data-style="btn-new"
+								class="form-control font-weight-bolder"
+								style="background-color: whitesmoke; border: none;" /></td>
+
+							<td><select data-style="btn-new"
+								class="form-control font-weight-bolder" id="type" name="type"
+								style="background-color: whitesmoke; border: none;">
+									<option value="Economy" selected>Economy</option>
+									<option value="Business">Business</option>
+							</select></td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- Button -->
+				<div class="form-group row d-flex justify-content-center">
+					<button type="submit"
+						class="col-2 btn btn-outline-primary text-capitalize">Search</button>
+				</div>
+			</form>
+		</div>
+		<!-- Search Box End -->
+	</div>
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>
