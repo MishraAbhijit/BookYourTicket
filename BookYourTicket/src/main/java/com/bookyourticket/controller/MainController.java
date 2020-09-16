@@ -16,7 +16,9 @@ import com.bookyourticket.dto.Airport;
 import com.bookyourticket.dto.FilghtCompleteInfo;
 import com.bookyourticket.dto.Flight;
 import com.bookyourticket.dto.ItineraryInfo;
+import com.bookyourticket.dto.Login;
 import com.bookyourticket.dto.SearchInfo;
+import com.bookyourticket.entity.User;
 import com.bookyourticket.integration.FlightSearchRestClient;
 
 @Controller
@@ -78,4 +80,40 @@ public class MainController {
 		modelAndView.addObject("Itinerary", itineraryInfo);
 		return modelAndView;
 	}
+	
+	@RequestMapping("/login")
+	public ModelAndView showLogin(HttpSession session)
+	{
+		logger.info("===== Inside Show Login =====");
+		System.out.println(".... Login .....");
+		ModelAndView modelAndView = new ModelAndView("login");
+		return modelAndView;
+	}
+	
+	@RequestMapping("/registration")
+	public ModelAndView showSignup(HttpSession session)
+	{
+		logger.info("===== Inside Show SignUp =====");
+		ModelAndView modelAndView = new ModelAndView("signup");
+		return modelAndView;
+	}
+	
+	@GetMapping("/processSignUp")
+	public ModelAndView processSignup(HttpSession session,User user)
+	{
+		logger.info("===== Processing SignUp =====");
+		System.out.println(user);
+		ModelAndView modelAndView = new ModelAndView("login");
+		return modelAndView;
+	}
+	
+	@GetMapping("/processLogin")
+	public ModelAndView processLogin(HttpSession session,Login login)
+	{
+		logger.info("===== Process Login =====");
+		System.out.println(login);
+		ModelAndView modelAndView = new ModelAndView("index");
+		return modelAndView;
+	}
+	
 }
