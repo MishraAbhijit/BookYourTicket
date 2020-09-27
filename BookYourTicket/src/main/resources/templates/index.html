@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
 <title>BookyourTicket.com</title>
 <!-- Required meta tags -->
@@ -17,8 +17,16 @@
 	href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
 	integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+	integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+	integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+	crossorigin="anonymous" />
 </head>
-<body class="bg-secondary">
+<body style="background-color: whitesmoke;">
 	<!-- Nav Bar -->
 	<nav class="shadow navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container">
@@ -42,7 +50,7 @@
 	</nav>
 
 	<!-- Selector Start-->
-	<div class="container mt-3">
+	<!-- <div class="container mt-3">
 		<div class="row d-flex">
 			<div class="shadow-lg col-10 container card mt-5">
 				<div class="row d-flex">
@@ -68,91 +76,333 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- Selector End -->
 
 	<!-- Search Box -->
-	<div class="container bg-light card">
-		<div class="row">
-			<div
-				class="col-6 pt-4 pl-4 text-left font-weight-bolder text-secondary">
-				<label class="radio-inline mr-2"> <input type="radio"
-					name="optradio" checked>ONEWAY
-				</label> <label class="radio-inline"> <input type="radio"
-					name="optradio">ROUNDTRIP
-				</label>
-			</div>
-			<div
-				class="col-6 pt-4 pr-4 text-right text-secondary font-weight-normal">
-				<h6>Book Domestic And International Flights</h6>
-			</div>
+	<div class="container-fluid"
+		style="background-image: linear-gradient(to bottom, #000428, #004e92);">
+		<div>
+			<p style="color: transparent;">asd</p>
 		</div>
-		<hr style="border: 2px solid steelblue;" />
-
-		<div class="container">
-			<form action="search" method="get">
-				<table class="table table-borderless">
-					<thead>
-						<tr>
-							<th class="text-center text-secondary" style="width: 25%;">
-								<h6>FROM</h6>
-							</th>
-							<th class="text-center text-secondary" style="width: 25%;">
-								<h6>TO</h6>
-							</th>
-							<th class="text-center text-secondary" style="width: 25%;">
-								<h6>DATE</h6>
-							</th>
-							<th class="text-center text-secondary" style="width: 25%;">
-								<h6>Travellers & Class</h6>
-							</th>
-						</tr>
-					</thead>
-					<tbody>	
-						<tr>
-							<td><select data-style="btn-new"
-								class="form-control selectpicker font-weight-bolder" id="from"
-								name="from" style="background-color: whitesmoke; border: none;">
-									<option value="Hyderabad" selected>Hyderabad(HYD)</option>
-									<option value="Bhubaneswar">Bhubaneswar(BBS)</option>
-									<option value="Mumbai">Mumbai(BOM)</option>
-									<option value="Delhi">Delhi(DEL)</option>
-							</select></td>
-							<td><select data-style="btn-new"
-								class="form-control font-weight-bolder" id="to" name="to"
-								style="background-color: whitesmoke; border: none;">
-									<option value="Bhubaneswar" selected>Bhubaneswar(BBS)</option>
-									<option value="Delhi">Delhi(DEL)</option>
-									<option value="Hyderabad">Hyderabad(HYD)</option>
-									<option value="Mumbai">Mumbai(BOM)</option>
-							</select></td>
-							<td><input type="date" name="date" min="2010-01-01"
-								max="2030-12-31" data-style="btn-new"
-								class="form-control font-weight-bolder"
-								style="background-color: whitesmoke; border: none;" /></td>
-
-							<td><select data-style="btn-new"
-								class="form-control font-weight-bolder" id="type" name="type"
-								style="background-color: whitesmoke; border: none;">
-									<option value="Economy" selected>Economy</option>
-									<option value="Business">Business</option>
-							</select></td>
-						</tr>
-					</tbody>
-				</table>
-				<!-- Button -->
-				<div class="form-group row d-flex justify-content-center">
-					<button type="submit"
-						class="col-2 btn btn-outline-primary text-capitalize">Search</button>
+		<div class="container bg-light card mt-5 mb-5">
+			<div class="row" style="transform: translateY(-2rem);">
+				<div class="shadow col-10 container card">
+					<div class="row d-flex">
+						<button class="col-2 btn btn-default text-capitalize pt-3">
+							<img th:src="@{photos/airplane2.png}" /><br /> <b><span
+								class="text-primary">Flights</span></b>
+						</button>
+						<button class="col-2 btn btn-default text-capitalize pt-3">
+							<img th:src="@{photos/train.png}" /><br /> <span>Trains</span>
+						</button>
+						<button class="col-2 btn btn-default text-capitalize pt-3">
+							<img th:src="@{photos/bus.png}" /><br /> <span>Buses</span>
+						</button>
+						<button class="col-2 btn btn-default text-capitalize pt-3">
+							<img th:src="@{photos/hotel.png}" /><br /> <span>Hotels</span>
+						</button>
+						<button class="col-2 btn btn-default text-capitalize pt-3">
+							<img th:src="@{photos/taxi.png}" /><br /> <span>Cabs</span>
+						</button>
+						<button class="col-2 btn btn-default text-capitalize pt-3">
+							<img th:src="@{photos/more.png}" /><br /> <span>More</span>
+						</button>
+					</div>
 				</div>
-			</form>
+			</div>
+			<div class="row">
+				<div class="col-6 pl-4 text-left font-weight-bolder text-secondary">
+					<label class="radio-inline mr-2"> <input id="one-way"
+						type="radio" name="optradio" onclick="showForm();" checked />ONEWAY
+					</label> <label class="radio-inline"> <input id="two-way"
+						type="radio" name="optradio" onclick="showForm();" />ROUNDTRIP
+					</label>
+				</div>
+				<div class="col-6 pr-4 text-right text-secondary font-weight-normal">
+					<h6>Book Domestic And International Flights</h6>
+				</div>
+			</div>
+			<hr style="border: 2px solid steelblue" />
+
+			<div class="container">
+				<form action="search" method="get" id="oneWay"
+					style="display: block;">
+					<table class="table table-borderless flight-form">
+						<thead>
+							<tr>
+								<th class="text-center text-secondary" style="width: 25%">
+									<h6>FROM</h6>
+								</th>
+								<th class="text-center text-secondary" style="width: 25%">
+									<h6>TO</h6>
+								</th>
+								<th class="text-center text-secondary" style="width: 25%">
+									<h6>DATE</h6>
+								</th>
+								<th class="text-center text-secondary" style="width: 25%">
+									<h6>Travellers & Class</h6>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><select data-style="btn-new"
+									class="form-control selectpicker font-weight-bolder" id="from"
+									name="from" style="background-color: whitesmoke; border: none">
+										<option value="Hyderabad" selected>Hyderabad(HYD)</option>
+										<option value="Bhubaneswar">Bhubaneswar(BBS)</option>
+										<option value="Mumbai">Mumbai(BOM)</option>
+										<option value="DEL">Delhi(DEL)</option>
+								</select></td>
+								<td><select data-style="btn-new"
+									class="form-control font-weight-bolder" id="to" name="to"
+									style="background-color: whitesmoke; border: none">
+										<option value="Bhubaneswar" selected>Bhubaneswar(BBS)</option>
+										<option value="DEL">Delhi(DEL)</option>
+										<option value="Hyderabad">Hyderabad(HYD)</option>
+										<option value="Mumbai">Mumbai(BOM)</option>
+								</select></td>
+								<td><input type="date" name="date" min="01-01-2020"
+									max="31-12-2030" data-style="btn-new"
+									class="form-control font-weight-bolder"
+									style="background-color: whitesmoke; border: none"
+									id="datePicker" /></td>
+								<td><select data-style="btn-new"
+									class="form-control font-weight-bolder" id="type" name="type"
+									style="background-color: whitesmoke; border: none">
+										<option value="Economy" selected>Economy</option>
+										<option value="Business">Business</option>
+								</select></td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- Button -->
+					<div class="form-group row d-flex justify-content-center">
+						<button type="submit"
+							class="col-2 btn btn-primary mb-2 font-weight-bolder text-uppercase"
+							style="background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(10, 57, 195, 1) 98%); color: cornsilk">Search</button>
+					</div>
+				</form>
+				<!-- Single Trip Form End -->
+				<!-- Round Trip Form Start-->
+				<form action="search" method="get" id="twoWay"
+					style="display: none;">
+					<table class="table table-borderless flight-form">
+						<thead>
+							<tr>
+								<th class="text-center text-secondary" style="width: 20%">
+									<h6>FROM</h6>
+								</th>
+								<th class="text-center text-secondary" style="width: 20%">
+									<h6>TO</h6>
+								</th>
+								<th class="text-center text-secondary" style="width: 20%">
+									<h6>DEPART</h6>
+								</th>
+								<th class="text-center text-secondary" style="width: 20%">
+									<h6>RETURN</h6>
+								</th>
+								<th class="text-center text-secondary" style="width: 20%">
+									<h6>Travellers & Class</h6>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><select data-style="btn-new"
+									class="form-control selectpicker font-weight-bolder" id="from"
+									name="from" style="background-color: whitesmoke; border: none">
+										<option value="Hyderabad" selected>Hyderabad(HYD)</option>
+										<option value="Bhubaneswar">Bhubaneswar(BBS)</option>
+										<option value="Mumbai">Mumbai(BOM)</option>
+										<option value="DEL">Delhi(DEL)</option>
+								</select></td>
+								<td><select data-style="btn-new"
+									class="form-control font-weight-bolder" id="to" name="to"
+									style="background-color: whitesmoke; border: none">
+										<option value="Bhubaneswar" selected>Bhubaneswar(BBS)</option>
+										<option value="DEL">Delhi(DEL)</option>
+										<option value="Hyderabad">Hyderabad(HYD)</option>
+										<option value="Mumbai">Mumbai(BOM)</option>
+								</select></td>
+								<td><input type="date" name="date" min="01-01-2020"
+									max="31-12-2030" data-style="btn-new"
+									class="form-control font-weight-bolder"
+									style="background-color: whitesmoke; border: none"
+									id="datePickerDep" /></td>
+								<td><input type="date" name="returnDate" min="01-01-2020"
+									max="31-12-2030" data-style="btn-new"
+									class="form-control font-weight-bolder"
+									style="background-color: whitesmoke; border: none"
+									id="datePickerRet" /></td>
+								<td><select data-style="btn-new"
+									class="form-control font-weight-bolder" id="type" name="type"
+									style="background-color: whitesmoke; border: none">
+										<option value="Economy" selected>Economy</option>
+										<option value="Business">Business</option>
+								</select></td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- Button -->
+					<div class="form-group row d-flex justify-content-center">
+						<button type="submit"
+							class="col-2 btn btn-primary mb-2 font-weight-bolder text-uppercase"
+							style="background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(10, 57, 195, 1) 98%); color: cornsilk">Search</button>
+					</div>
+				</form>
+				<!-- Round Trip Form End -->
+			</div>
+			<!-- Search Box End -->
 		</div>
-		<!-- Search Box End -->
+		<div>
+			<p style="color: transparent;">asd</p>
+		</div>
+	</div>
+	<!-- Search Box End-->
+	<!-- Slick Corousal Start -->
+
+	<div class="container">
+		<h4 class="font-weight-bold">Offers</h4>
+		<div class="row slider">
+			<!-- Offer1 Start -->
+			<div class="col-4 card shadow d-flex justify-content-start  mr-1">
+				<div class="row"
+					style="background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(5, 57, 109, 1) 56%, rgba(37, 37, 180, 1) 100%); color: cornsilk">
+					<img class="p-3" th:src="@{/photos/sale (1).png}" style="color: whitesmoke;" />
+					<h6 class="p-3">
+						<b class="" style="font-size: 20px;">FLYSALE</b>
+					</h6>
+					<small class="font-weight-bold text-white-70 p-2"
+						style="margin-left: 10px;">Use this coupon and get up to
+						Rs.1000 instant discount.</small>
+				</div>
+				<div class="row px-3 mt-2">
+					<p class="text-secondary font-weight-bold">
+						Valid till: <span>1</span>
+					</p>
+				</div>
+			</div>
+
+			<!-- Offer1 End -->
+			<!-- Offer 2 Start -->
+			<div class="col-4 card shadow d-flex justify-content-start mr-1">
+				<div class="row"
+					style="background: linear-gradient(90deg, rgba(217, 121, 77, 1) 0%, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%); color: cornsilk">
+					<img class="p-3" th:src="@{/photos/sale (1).png}" style="color: whitesmoke;" />
+					<h6 class="p-3">
+						<b class="" style="font-size: 20px;">FLYSALE</b>
+					</h6>
+					<small class="font-weight-bold text-white-70 p-2"
+						style="margin-left: 10px;">Use this coupon and get up to
+						Rs.1000 instant discount.</small>
+				</div>
+				<div class="row px-3 mt-2">
+					<p class="text-secondary font-weight-bold">
+						Valid till: <span>2</span>
+					</p>
+				</div>
+			</div>
+			<!-- Offer2 End -->
+			<!-- Offer 3 Start -->
+			<div class="col-4 card shadow d-flex justify-content-start mr-1">
+				<div class="row"
+					style="background: linear-gradient(84deg, rgba(4, 131, 50, 1) 0%, rgba(29, 150, 253, 1) 100%); color: cornsilk">
+					<img class="p-3" th:src="@{/photos/sale (1).png}" style="color: whitesmoke;" />
+					<h6 class="p-3">
+						<b class="" style="font-size: 20px;">FLYSALE</b>
+					</h6>
+					<small class="font-weight-bold text-white-70 p-2"
+						style="margin-left: 10px;">Use this coupon and get up to
+						Rs.1000 instant discount.</small>
+				</div>
+				<div class="row px-3 mt-2">
+					<p class="text-secondary font-weight-bold">
+						Valid till: <span>1</span>
+					</p>
+				</div>
+			</div>
+			<!-- Offer 3 End -->
+			<!-- Offer 4 Start -->
+			<div class="col-4 card shadow d-flex justify-content-start mr-1">
+				<div class="row"
+					style="background: linear-gradient(84deg, rgba(105, 5, 100, 1) 1%, rgba(29, 253, 216, 1) 100%); color: cornsilk">
+					<img class="p-3" th:src="@{/photos/sale (1).png}" style="color: whitesmoke;" />
+					<h6 class="p-3">
+						<b class="" style="font-size: 20px;">FLYSALE</b>
+					</h6>
+					<small class="font-weight-bold text-white-70 p-2"
+						style="margin-left: 10px;">Use this coupon and get up to
+						Rs.1000 instant discount.</small>
+				</div>
+				<div class="row px-3 mt-2">
+					<p class="text-secondary font-weight-bold">
+						Valid till: <span>2</span>
+					</p>
+				</div>
+			</div>
+			<!-- Offer 4 end -->
+			<!-- Offer 5 Start -->
+			<div class="col-4 card shadow d-flex justify-content-start mr-1">
+				<div class="row"
+					style="background: linear-gradient(84deg, rgba(5, 105, 41, 1) 1%, rgba(241, 253, 29, 1) 100%); color: cornsilk">
+					<img class="p-3" th:src="@{/photos/sale (1).png}" style="color: whitesmoke;" />
+					<h6 class="p-3">
+						<b class="" style="font-size: 20px;">FLYSALE</b>
+					</h6>
+					<small class="font-weight-bold text-white-70 p-2"
+						style="margin-left: 10px;">Use this coupon and get up to
+						Rs.1000 instant discount.</small>
+				</div>
+				<div class="row px-3 mt-2">
+					<p class="text-secondary font-weight-bold">
+						Valid till: <span>1</span>
+					</p>
+				</div>
+			</div>
+
+			<!-- Offer5 End -->
+		</div>
 	</div>
 
+	<!-- Slick Carousal End -->
 
+	<!-- Footer Start  -->
+	<footer class=" d-flex justify-content-between px-4"
+		style="background-color: black; margin-top: 150px; height: 60px; width: 100%; color: whitesmoke;">
+		<p class="mt-3 ml-5">
+			<i class="fab fa-facebook-f mr-3"></i><i class="fab fa-twitter ml-2"></i>
+		</p>
+		<p class="mt-3 mr-5">&#169; BookYourTicket PVT. LTD.</p>
+	</footer>
+	<!-- Footer End -->
 
 	<!-- Optional JavaScript -->
+
+	<script>
+    document.getElementById('datePicker').valueAsDate = new Date();
+    document.getElementById('datePickerDep').valueAsDate = new Date();
+    var currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + 1);
+    document.getElementById('datePickerRet').valueAsDate = currentDate;
+
+    function showForm() {
+
+      if (document.getElementById('one-way').checked) {
+        document.getElementById('oneWay').style.display = "block";
+        document.getElementById('twoWay').style.display = "none";
+      }
+      else {
+        document.getElementById('oneWay').style.display = "none";
+        document.getElementById('twoWay').style.display = "block";
+      }
+      console.log(document.getElementById('bothWay').style.display);
+      console.log(document.getElementById('oneWay').style.display);
+    }
+
+  </script>
+
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -165,5 +415,56 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+		integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+		crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+    $('.slider').slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      centerMode: true,
+      //autoplay: true,
+      //autoplaySpeed: 3000,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true,
+            centerMode: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            centerMode: true
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+  </script>
+
 </body>
 </html>

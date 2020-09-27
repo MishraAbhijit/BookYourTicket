@@ -36,14 +36,20 @@ public class MainController {
 		return "index";
 	}
 
+	//Search Flight Details
 	@GetMapping("/search")
 	public ModelAndView getFlights(HttpSession httpSession, SearchInfo searchInfo) {
 		logger.info("Searching Flights............"+searchInfo);
 		System.out.println(searchInfo);
+		ModelAndView modelAndView=null;
+		//If Flight Search One Way
+		if(searchInfo.getReturnDate()==null||searchInfo.getReturnDate().isEmpty())
+		{
+			logger.info("====== One Way Journey ======");	
 		FilghtCompleteInfo searchFlights = flightSearchRestClient.searchFlights(searchInfo.getFrom(),searchInfo.getTo());
 		System.out.println(searchFlights);
 		httpSession.setAttribute("SearchInfo", searchInfo);
-		ModelAndView modelAndView = new ModelAndView("flights");
+		modelAndView = new ModelAndView("flights");
 		modelAndView.addObject("SearchInfo", searchInfo);
 		modelAndView.addObject("flights", searchFlights.getFlight());
 		modelAndView.addObject("source", searchFlights.getSource());
@@ -52,9 +58,30 @@ public class MainController {
 		modelAndView.addObject("destination", searchFlights.getDestination());
 		// Storing destination value into HttpSession
 		httpSession.setAttribute("Destination", searchFlights.getDestination());
+		}
+		else
+		{
+			modelAndView = new ModelAndView("flights2");
+			modelAndView.addObject("SearchInfo", searchInfo);
+			logger.info("====== Two Way Journey ======");
+			System.out.println("Dispatch Search.....");
+			FilghtCompleteInfo searchFlights = flightSearchRestClient.searchFlights(searchInfo.getFrom(),searchInfo.getTo());
+			System.out.println(searchFlights);
+			
+			modelAndView.addObject("departFlights", searchFlights.getFlight());
+			modelAndView.addObject("source", searchFlights.getSource());
+			modelAndView.addObject("destination", searchFlights.getDestination());
+			
+			System.out.println("Arrival Search.....");
+			searchFlights = flightSearchRestClient.searchFlights(searchInfo.getTo(),searchInfo.getFrom());
+			System.out.println(searchFlights);
+			modelAndView.addObject("returnFlights", searchFlights.getFlight());
+			
+		}
 		return modelAndView;
 	}
 
+	//On Clicking Itinerary
 	@GetMapping("/itinerary")
 	public ModelAndView showItinerary(HttpSession httpSession,@RequestParam("id") String id) {
 		// Getting Search Info From HttpSession
@@ -81,6 +108,13 @@ public class MainController {
 		return modelAndView;
 	}
 	
+	//Add Traveller Info
+	@GetMapping("/traveller")
+	public ModelAndView showTravellerInfo(HttpSession httpSession,@RequestParam("insurance") String insurance)
+	{
+		ModelAndView modelAndView = new ModelAndView("travellers");
+		return modelAndView;
+	}
 	@RequestMapping("/login")
 	public ModelAndView showLogin(HttpSession session)
 	{
@@ -115,5 +149,6 @@ public class MainController {
 		ModelAndView modelAndView = new ModelAndView("index");
 		return modelAndView;
 	}
+	
 	
 }

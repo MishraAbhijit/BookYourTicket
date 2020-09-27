@@ -72,7 +72,21 @@ public class SearchInfo {
 	}
 
 	public void setReturnDate(String returnDate) {
+		System.out.println("Before date: "+returnDate);
+		if(returnDate!=null&&!returnDate.isEmpty())
+		{	
+		Date dt = null;
+		try {
+			 dt = new SimpleDateFormat("yyyy-MM-dd").parse(returnDate);
+			 System.out.println("Parsed Date: "+dt);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		returnDate=new SimpleDateFormat("dd-MM-yyyy").format(dt);
 		this.returnDate = returnDate;
+		}
 	}
 
 	@Override
