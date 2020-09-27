@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+  <style>
+    #progressbar ul {
+      text-align: center;
+    }
+
+    #progressbar ul li {
+      display: inline-block;
+      width: 100px;
+      font-size: small;
+      position: relative;
+    }
+
+    #progressbar ul li .fas {
+      background: #000428;
+      width: 17px;
+      height: 17px;
+      color: aqua;
+      border-radius: 50%;
+      z-index: 5;
+    }
+
+    #progressbar ul li .fas::after {
+      content: '';
+      background-color: whitesmoke;
+      height: 4px;
+      width: 120px;
+      display: block;
+      position: relative;
+      left: 0;
+      top: -7px;
+      z-index: -1;
+    }
+
+    #progressbar ul li:nth-child(1) .fas::after {
+      background-color: aqua;
+    }
+
+    #progressbar ul li:nth-child(2) .fas::after {
+      background-color: aqua;
+    }
+
+    #progressbar ul li:nth-child(3) .fas::after {
+      background-color: rgb(49, 228, 49);
+    }
+
+    #progressbar ul li:nth-child(4) .fas::after {
+      background-color: orangered;
+    }
+  </style>
+</head>
+
+<body class="bg-secondary" style="background-image:linear-gradient(to bottom, #000428, #004e92)">
+
+  <!-- navigation start -->
+  <nav class="shadow navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container d-flex justify-content-start">
+			<a href="index.html" class="navbar-brand font-weight-bolder"
+				style="color: blue">BookyourTicket.com</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item active mr-4 ml-5"><a href="index.html"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/airplane2.png" /></span></a></li>
+					<li class="nav-item mr-4"><a href="#"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/train.png" /></span></a></li>
+					<li class="nav-item mr-4"><a href="#"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/bus.png" /></span></a></li>
+					<li class="nav-item mr-4"><a href="#"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/hotel.png" /></span></a></li>
+					<li class="nav-item mr-4"><a href="login.html"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/taxi.png" /></span></a></li>
+					<li class="nav-item mr-4"><a href="login.html"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/more.png" /></span></a></li>
+					<li class="nav-item mr-3" style="margin-left: 100px;"><a
+						href="login.html" class="nav-link font-weight-bold"><span><img
+								src="photos/wallet.png" /><small class="ml-1 mt-1"
+								style="color: blue; font-weight: bold;">Wallet</small></span></a></li>
+					<li class="nav-item mr-5"><a href="login.html"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/login (1).png" /><small class="ml-1 mt-1"
+								style="color: blue; font-weight: bold;">Login/Signup</small></span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+  <!-- navigation End -->
+
+  <!-- review header start-->
+  <div class="container-fluid pt-2 mt-3" style=" background-color: transparent; color: whitesmoke;">
+    <div class="row">
+      <div class="col-4 text-center">
+        <h4>Traveller Details & Addon</h4>
+      </div>
+      <div class="col-8" id="progressbar">
+        <ul>
+          <li class="active">
+            <i class="fas fa-check" aria-hidden="true"></i>
+            <p>Flight Selected</p>
+          </li>
+          <li>
+            <i class="fas fa-sync"></i>
+            <p>Review</p>
+          </li>
+          <li>
+            <i class="fas fa-times" aria-hidden="true"></i>
+            <p>Traveller Details</p>
+          </li>
+          <li>
+            <i class="fas fa-times" aria-hidden="true"></i>
+            <p>Make Payment</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- review header end -->
+
+
+  <!-- Body Start -->
+  <div class="container mx-auto mt-2">
+    <div class="row">
+      <!-- Left Column Start -->
+      <div class="col-9">
+        <!-- Flight Summary Start -->
+        <h6 class="text-white font-weight-bold">Flight Summary</h6>
+        <div class="card shadow">
+          <h6 class="p-3"><span class="font-weight-bold">Bhubaneswar</span>-<span
+              class="font-weight-bold">Hyderabad</span><br><span class="text-secondary">Departure</span> <span
+              class="text-secondary">Thu, 17 Sep</span></h6>
+        </div>
+        <!-- Flight Summary End -->
+
+        <!-- Traveller Information Start -->
+        <h6 class="text-white font-weight-bold mt-4">Traveller Details</h6>
+        <div class="card shadow p-3">
+          <h6>Adult</h6>
+          <div class="card p-3">
+            <p><small class="font-weight-bold">Important: </small><small>Enter your name as it is mentioned on your
+                passport or any government
+                approved ID.
+              </small></p>
+            <form action="#">
+              <div class="input-group px-3 mt-2">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="mobile"><i class="fa fa-user" aria-hidden="true"></i></label>
+                </div>
+                <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Name">
+              </div>
+              <div class="input-group px-3 mt-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="mobile"><i class="fa fa-phone-square"
+                      aria-hidden="true"></i></label>
+                </div>
+                <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Mobile No">
+              </div>
+              <label class="radio-inline px-3 mt-1"><input type="radio" name="male" checked>Male</label>
+              <label class="radio-inline px-3 mt-1"><input type="radio" name="female">Female</label>
+              <div class="checkbox px-3 mt-1">
+                <label><input type="checkbox" value="true" id="travelerList" name="travellerList"> Add these travellers
+                  to My Traveller List.</label>
+              </div>
+              <button type="submit" class="btn btn-outline-primary ml-3 mt-2">Submit</button>
+            </form>
+          </div>
+          <table class="table mt-2 px-5 mx-auto">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">MobileNo</th>
+                <th scope="col">Gender</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Abhijit Mishra</td>
+                <td>8144978244</td>
+                <td>Male</td>
+                <td><a href="#" class="mx-2"><i class="fas fa-edit"></i></a><a href="#" class="mx-2"
+                    style="color: red;"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Traveller Information End -->
+        <!-- Contact Information Start -->
+        <form action="#">
+          <h6 class="text-white font-weight-bold mt-4">Contact Information</h6>
+          <div class="card shadow p-3">
+            <small class="mb-1 px-3 font-weight-bold text-secondary">Your ticket and flight information will be sent
+              here</small>
+
+            <div class="input-group px-3 mt-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="mobile"><i class="fa fa-phone-square"
+                    aria-hidden="true"></i></label>
+              </div>
+              <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Mobile No">
+            </div>
+            <div class="input-group px-3 mt-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="mobile"><i class="fa fa-envelope" aria-hidden="true"></i></label>
+              </div>
+              <input type="email" name="email" id="email" class="form-control" placeholder="Email ID">
+            </div>
+          </div>
+          <!-- Contact Information End -->
+
+          <!-- Add Ons Start -->
+          <h6 class="text-white font-weight-bold mt-4">Add-ons</h6>
+          <div class="card p-3 ">
+            <h5>Airport Pick & Drop</h5>
+            <h6 class="text-secondary">SEDAN | 4Seats | 2Bags | 24 SEP</h6>
+            <small style="color: teal;"><b>Pre-book airport cabs at great prices. Now available in city near
+                you.</b></small>
+
+            <p><b>Select cabs for <span>Bhubnaeswar</span> to <span>Hyderabad</span> trip</b></p>
+            <div class="row">
+              <div class="col-7">
+                <div class=" shadow card p-3">
+                  <p class="font-weight-bold text-secondary"><input type="checkbox" name="cab" id="cab" class="mr-1"
+                      value="true" onclick="enableDisable();"> Pickup:
+                    <span style="color: black;">Hyderabad
+                      Airport</span></p>
+                  <p class="font-weight-bold text-secondary ml-4">Drop: <input type="text" name="drop" id="drop"
+                      disabled></p>
+                  <small class="ml-4 font-weight-bold" style="color: cornflowerblue;">Flat &#8377;745 upto 25 Kms;
+                    &#8377;16/Km
+                    thereafter</small>
+                </div>
+              </div>
+            </div>
+            <p class="mt-2 ml-1 mr-1 p-2 card" style="background-color:skyblue; opacity:0.6;"><small
+                style="color: #000428; opacity: 1; font-weight: bold;"><i class="fas fa-hand-point-right   mr-2 "></i>
+                Exact
+                Location
+                Details
+                will be collected
+                Post Booking</small></p>
+          </div>
+
+          <!-- Add Ons END -->
+
+          <!-- Acknowledgement Start -->
+          <h6 class="text-white font-weight-bold mt-4">Acknowledgement</h6>
+          <div class="card shadow mb-5 justify-content-left">
+            <small class="p-3">By clicking on the Continue button below to proceed with the booking. I confirm that I
+              have read and I accept
+              the <a href="#">Fare Rules</a>, the <a href="#">Privacy Policy</a> , the <a href="#">User Agreement</a>
+              and <a href="#">Terms of Service</a>
+              of BookYorTicket.com
+            </small>
+            <button class="col-2 btn btn-primary mb-2 mx-auto font-weight-bolder text-uppercase"
+              style="background:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(10,57,195,1) 98%);color:cornsilk">Continue</button>
+          </div>
+        </form>
+
+        <!-- Acknowledgement End -->
+
+      </div>
+      <!-- Left Column End -->
+      <!-- Right Column Start -->
+      <div class="col-3">
+        <h6 class="text-white font-weight-bold">Fare Summary</h6>
+        <!-- section 1 start -->
+        <div class="card shadow">
+          <div class="bg-white ml-2">
+            <b>Base Fare</b>
+          </div>
+          <div class="bg-white d-flex justify-content-between" style="font-size:15px;">
+            <p class="ml-2">Adult(s) (1 X ₹ 2,900)</p>
+            <b class="mr-2">₹ 2,900</b>
+          </div>
+
+          <div class="bg-white ml-2">
+            <b>Fee & Surcharges</b>
+          </div>
+          <div class="bg-white d-flex justify-content-between">
+            <p class="ml-2">Total fee & surcharges:</p>
+            <b class="mr-2">₹ 759</b>
+          </div>
+
+          <div class="bg-white ml-2">
+            <b>Base Fare</b>
+          </div>
+          <div class="bg-white d-flex justify-content-between">
+            <p class="ml-2">Charity</p>
+            <b class="mr-2">₹ 5</b>
+          </div>
+          <hr class="ml-2 mr-2">
+          <div class="bg-white d-flex justify-content-between mb-2">
+            <b class="ml-2" style="font-size: large;">Total Amount:</b>
+            <b class="mr-2" style="font-size: large;">₹ 3,664</b>
+          </div>
+        </div>
+        <!-- section 1 end -->
+      </div>
+      <!-- Right Column End -->
+    </div>
+  </div>
+  <!-- Body End -->
+
+  <!-- Validation start -->
+  <script>
+    function enableDisable() {
+      if (document.getElementById('cab').checked) {
+        document.getElementById('drop').disabled = false;
+        //console.log(document.getElementById('drop'));
+      }
+      else {
+        document.getElementById('drop').disabled = true;
+        // console.log(document.getElementById('drop'));
+      }
+    }
+  </script>
+  <!-- Validation end -->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

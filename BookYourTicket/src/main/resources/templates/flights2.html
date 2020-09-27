@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+<title>Title</title>
+<!-- Required meta tags -->
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous" />
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+	integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+	integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+	integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+	crossorigin="anonymous" />
+</head>
+
+<body class="bg-secondary"
+	style="background-image: linear-gradient(to bottom, #000428, #004e92)">
+	<!-- Navbar start -->
+	<nav class="shadow navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container d-flex justify-content-start">
+			<a href="index.html" class="navbar-brand font-weight-bolder"
+				style="color: blue">BookyourTicket.com</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item active mr-4 ml-5"><a href="index.html"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/airplane2.png" /></span></a></li>
+					<li class="nav-item mr-4"><a href="#"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/train.png" /></span></a></li>
+					<li class="nav-item mr-4"><a href="#"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/bus.png" /></span></a></li>
+					<li class="nav-item mr-4"><a href="#"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/hotel.png" /></span></a></li>
+					<li class="nav-item mr-4"><a href="login.html"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/taxi.png" /></span></a></li>
+					<li class="nav-item mr-4"><a href="login.html"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/more.png" /></span></a></li>
+					<li class="nav-item mr-3" style="margin-left: 100px;"><a
+						href="login.html" class="nav-link font-weight-bold"><span><img
+								src="photos/wallet.png" /><small class="ml-1 mt-1"
+								style="color: blue; font-weight: bold;">Wallet</small></span></a></li>
+					<li class="nav-item mr-5"><a href="login.html"
+						class="nav-link font-weight-bold"><span><img
+								src="photos/login (1).png" /><small class="ml-1 mt-1"
+								style="color: blue; font-weight: bold;">Login/Signup</small></span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Navbar end -->
+
+	<!-- Search bar start -->
+	<div class="container-fluid" style="background-color: transparent;">
+		<div class="container">
+			<form action="search" th:object="${SearchInfo}">
+				<div class="row">
+					<div class="col-2 mt-2">
+						<p class="text-uppercase font-weight-bolder"
+							style="color: cornflowerblue; font-size: small;">
+							Trip Type<input class="form-control" type="text"
+								th:value="${SearchInfo.journey}" th:field="*{journey}"
+								style="background-color: transparent; color: aliceblue; border-color: cornflowerblue;">
+						</p>
+					</div>
+					<div class="col-2 mt-2">
+						<p class="text-uppercase font-weight-bolder"
+							style="color: cornflowerblue; font-size: small;">
+							from<input class="form-control" type="text"
+								th:value="${SearchInfo.from}" th:field="*{from}"
+								style="background-color: transparent; color: aliceblue; border-color: cornflowerblue;">
+						</p>
+					</div>
+					<div class="col-2 mt-2">
+						<p class="text-uppercase font-weight-bolder"
+							style="color: cornflowerblue; font-size: small;">
+							to<input class="form-control" type="text"
+								th:value="${SearchInfo.to}" th:field="*{to}"
+								style="background-color: transparent; color: aliceblue; border-color: cornflowerblue;">
+						</p>
+					</div>
+					<div class="col-2 mt-2">
+						<p class="text-uppercase font-weight-bolder"
+							style="color: cornflowerblue; font-size: small;">
+							depart<input class="form-control" type="text"
+								th:value="${SearchInfo.date}" th:field="*{date}"
+								style="background-color: transparent; color: aliceblue; border-color: cornflowerblue;">
+						</p>
+					</div>
+					<div class="col-2 mt-2">
+						<p class="text-uppercase font-weight-bolder"
+							style="color: cornflowerblue; font-size: small;">
+							return<input class="form-control" type="text"
+								th:value="${SearchInfo.returnDate}" th:field="*{returnDate}"
+								style="background-color: transparent; color: aliceblue; border-color: cornflowerblue;">
+						</p>
+					</div>
+					<div class="col-2 mt-2">
+						<p class="text-uppercase font-weight-bolder"
+							style="color: cornflowerblue; font-size: small;">
+							Passenger&Class<input class="form-control" type="text"
+								th:value="${SearchInfo.type}" th:field="*{type}"
+								style="background-color: transparent; color: aliceblue; border-color: cornflowerblue;">
+						</p>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<button
+						class="col-2 btn btn-primary mb-2 font-weight-bolder text-uppercase"
+						disabled="disabled"
+						style="background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(185, 114, 219, 1) 0%, rgba(10, 57, 195, 1) 98%); color: cornsilk;">Search</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- Search bar end -->
+
+	<!-- flight list start -->
+	<!-- Coupon Code Start -->
+	<!-- Slick Corousal Start -->
+
+	<div class="container">
+		<h4 class="font-weight-bold" style="color: whitesmoke;">Offers</h4>
+		<div class="row slider">
+			<!-- Offer1 Start -->
+			<div class="col-4 card shadow d-flex justify-content-start  mr-1">
+				<div class="row"
+					style="background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(5, 57, 109, 1) 56%, rgba(37, 37, 180, 1) 100%); color: cornsilk">
+					<img class="p-3" th:src="@{/photos/sale (1).png}"
+						style="color: whitesmoke;" />
+					<h6 class="p-3">
+						<b class="" style="font-size: 20px;">FLYSALE</b>
+					</h6>
+					<small class="font-weight-bold text-white-70 p-2"
+						style="margin-left: 10px;">Use this coupon and get up to
+						Rs.1000 instant discount.</small>
+				</div>
+				<div class="row px-3 mt-2">
+					<p class="text-secondary font-weight-bold">
+						Valid till: <span>1</span>
+					</p>
+				</div>
+			</div>
+
+			<!-- Offer1 End -->
+			<!-- Offer 2 Start -->
+			<div class="col-4 card shadow d-flex justify-content-start mr-1">
+				<div class="row"
+					style="background: linear-gradient(90deg, rgba(217, 121, 77, 1) 0%, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%); color: cornsilk">
+					<img class="p-3" th:src="@{/photos/sale (1).png}"
+						style="color: whitesmoke;" />
+					<h6 class="p-3">
+						<b class="" style="font-size: 20px;">FLYSALE</b>
+					</h6>
+					<small class="font-weight-bold text-white-70 p-2"
+						style="margin-left: 10px;">Use this coupon and get up to
+						Rs.1000 instant discount.</small>
+				</div>
+				<div class="row px-3 mt-2">
+					<p class="text-secondary font-weight-bold">
+						Valid till: <span>2</span>
+					</p>
+				</div>
+			</div>
+			<!-- Offer2 End -->
+			<!-- Offer 3 Start -->
+			<div class="col-4 card shadow d-flex justify-content-start mr-1">
+				<div class="row"
+					style="background: linear-gradient(84deg, rgba(4, 131, 50, 1) 0%, rgba(29, 150, 253, 1) 100%); color: cornsilk">
+					<img class="p-3" th:src="@{/photos/sale (1).png}"
+						style="color: whitesmoke;" />
+					<h6 class="p-3">
+						<b class="" style="font-size: 20px;">FLYSALE</b>
+					</h6>
+					<small class="font-weight-bold text-white-70 p-2"
+						style="margin-left: 10px;">Use this coupon and get up to
+						Rs.1000 instant discount.</small>
+				</div>
+				<div class="row px-3 mt-2">
+					<p class="text-secondary font-weight-bold">
+						Valid till: <span>1</span>
+					</p>
+				</div>
+			</div>
+			<!-- Offer 3 End -->
+			<!-- Offer 4 Start -->
+			<div class="col-4 card shadow d-flex justify-content-start mr-1">
+				<div class="row"
+					style="background: linear-gradient(84deg, rgba(105, 5, 100, 1) 1%, rgba(29, 253, 216, 1) 100%); color: cornsilk">
+					<img class="p-3" th:src="@{/photos/sale (1).png}"
+						style="color: whitesmoke;" />
+					<h6 class="p-3">
+						<b class="" style="font-size: 20px;">FLYSALE</b>
+					</h6>
+					<small class="font-weight-bold text-white-70 p-2"
+						style="margin-left: 10px;">Use this coupon and get up to
+						Rs.1000 instant discount.</small>
+				</div>
+				<div class="row px-3 mt-2">
+					<p class="text-secondary font-weight-bold">
+						Valid till: <span>2</span>
+					</p>
+				</div>
+			</div>
+			<!-- Offer 4 end -->
+			<!-- Offer 5 Start -->
+			<div class="col-4 card shadow d-flex justify-content-start mr-1">
+				<div class="row"
+					style="background: linear-gradient(84deg, rgba(5, 105, 41, 1) 1%, rgba(241, 253, 29, 1) 100%); color: cornsilk">
+					<img class="p-3" th:src="@{/photos/sale (1).png}"
+						style="color: whitesmoke;" />
+					<h6 class="p-3">
+						<b class="" style="font-size: 20px;">FLYSALE</b>
+					</h6>
+					<small class="font-weight-bold text-white-70 p-2"
+						style="margin-left: 10px;">Use this coupon and get up to
+						Rs.1000 instant discount.</small>
+				</div>
+				<div class="row px-3 mt-2">
+					<p class="text-secondary font-weight-bold">
+						Valid till: <span>1</span>
+					</p>
+				</div>
+			</div>
+
+			<!-- Offer5 End -->
+		</div>
+	</div>
+	<!-- Slick Carousal End -->
+	<!-- Coupon Code End -->
+	<!-- Search Results Start -->
+	<div class=" container mt-3">
+		<div class="row">
+			<div class="col-6">
+				<!--  Search Heading start-->
+				<div class="shadow container card mt-5">
+					<h4 class="p-1 m-2">
+						Flights From <span th:text="${source.city}">Hyderabad</span> To <span
+							th:text="${destination.city}">Bhubaneswar</span>
+					</h4>
+				</div>
+				<!-- Search Heading End -->
+
+				<div class="shadow container card mt-3"
+					th:each="flight:${departFlights}">
+					<p class="mt-1 text-left pl-2" style="display: inline;">
+						<input id="one-way" type="radio" name="departure"
+							th:value="${flight.airlineName+'|'+flight.flightId+'|'+flight.departureTime+'|'+flight.arrivalTime+'|'+flight.priceAdult}"
+							onclick="findDeparture(this.value);" /><b class="ml-2"
+							th:text="${flight.airlineName}">IndiGo</b> <span
+							style="color: blue;" th:text="${flight.flightId}">6E-266</span>
+					</p>
+					<div class="row">
+						<p class="col-3 text-center">
+							<i class="fa fa-plane mr-3" aria-hidden="true"></i><b
+								class="mr-4" th:text="${flight.departureTime}">06.30</b><br>
+							<small class="ml-2" style="color: blue;" th:text="${source.city}">Hyderabad</small>
+						</p>
+						<p class="col-3 text-center">
+							<span style="font-size: medium;"
+								th:text="${flight.timeOfJourney}">01 hr 35 mins</span><br>
+							<small style="color: blue;">Non stop</small>
+						</p>
+						<p class="col-3 text-center">
+							<b th:text="${flight.arrivalTime}">08.10</b><br> <small
+								style="color: blue;" th:text="${destination.city}">Bhubaneswar</small>
+						</p>
+						<p class="col-3 text-left" style="font-size: 25px;">
+							&#8377;<b th:text="${flight.priceAdult}">5,287</b>
+						</p>
+						<hr />
+					</div>
+				</div>
+			</div>
+			<div class="col-6">
+				<!--  Search Heading start-->
+				<div class="shadow container card mt-5">
+					<h4 class="p-1 m-2">
+						Flights From <span th:text="${destination.city}">Bhubaneswar</span>
+						To <span th:text="${source.city}">Hyderabad</span>
+					</h4>
+				</div>
+				<!-- Search Heading End -->
+
+				<div class="shadow container card mt-3"
+					th:each="flight:${returnFlights}">
+					<p class="mt-1 text-left pl-2" style="display: inline;">
+						<input id="one-way" type="radio" name="return"
+							th:value="${flight.airlineName+'|'+flight.flightId+'|'+flight.departureTime+'|'+flight.arrivalTime+'|'+flight.priceAdult}"
+							onclick="findReturn(this.value);" /><b class="ml-2"
+							th:text="${flight.airlineName}">IndiGo</b> <span
+							style="color: blue;" th:text="${flight.flightId}">6E-266</span>
+					</p>
+					<div class="row">
+						<p class="col-3 text-center">
+							<i class="fa fa-plane mr-3" aria-hidden="true"></i><b
+								class="mr-4" th:text="${flight.departureTime}">06.30</b><br>
+							<small class="ml-2" style="color: blue;" th:text="${source.city}">Hyderabad</small>
+						</p>
+						<p class="col-3 text-center">
+							<span style="font-size: medium;"
+								th:text="${flight.timeOfJourney}">01 hr 35 mins</span><br>
+							<small style="color: blue;">Non stop</small>
+						</p>
+						<p class="col-3 text-center">
+							<b th:text="${flight.arrivalTime}">08.10</b><br> <small
+								style="color: blue;" th:text="${destination.city}">Bhubaneswar</small>
+						</p>
+						<p class="col-3 text-left" style="font-size: 25px;">
+							&#8377;<b th:text="${flight.priceAdult}">5,287</b>
+						</p>
+						<hr />
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- Search Results End -->
+
+	<!-- Selection Details Start-->
+	<form action="#" onsubmit="findSelectedData();">
+
+		<div class="container mt-3 mb-2 mx-auto bg-dark p-3"
+			style="position: sticky;">
+			<input type="text" id="departure" value="" name="departure" hidden>
+			<input type="text" id="arrival" value="" name="arrival" hidden>
+			<div class="row">
+				<div class="col-4">
+					<div style="color: white;" id="depart">
+						<p
+							th:text="${'Departure | '+departFlights[0].airlineName+' | '+departFlights[0].flightId}">Departure
+							| IndiGo | 6E-375</p>
+						<p>
+							<i class="fa fa-plane mr-2" aria-hidden="true"></i><span
+								th:text="${departFlights[0].departureTime}">06.30</span> <i
+								class="fa fa-arrow-right ml-2 mr-2 " aria-hidden="true"></i><span
+								th:text="${departFlights[0].arrivalTime}"> 08.10</span> <b
+								class="ml-4">&#8377;<span id="departurePrice"
+								th:text="${departFlights[0].priceAdult}">5287</span></b>
+						</p>
+
+					</div>
+				</div>
+				<div class="col-4">
+					<div style="color: white;" id="return">
+						<p
+							th:text="${'Return | '+returnFlights[0].airlineName+' | '+returnFlights[0].flightId}">Return
+							| IndiGo | 6E-375</p>
+						<p>
+							<i class="fa fa-plane mr-2" aria-hidden="true"></i><span
+								th:text="${returnFlights[0].departureTime}"> 06.30 </span><i
+								class="fa fa-arrow-right ml-2 mr-2 " aria-hidden="true"></i><span
+								th:text="${returnFlights[0].arrivalTime}"> 08.10 </span><b
+								class="ml-4">&#8377;<span id="returnPrice"
+								th:text="${returnFlights[0].priceAdult}">5287</span></b>
+						</p>
+
+					</div>
+				</div>
+				<div class="col-4" style="display: inline-flex;">
+					<h3 class="my-auto" style="color: white;">
+						&#8377;<span id="total"
+							th:text="${T(Integer).parseInt(departFlights[0].priceAdult)+T(Integer).parseInt(returnFlights[0].priceAdult)}">5500</span>
+					</h3>
+					<button type="submit"
+						class="btn btn-dark space hvr-pulse tog1 mx-auto my-auto"
+						style="border-color: cornflowerblue; text-decoration: none;">Book
+						Now</button>
+				</div>
+			</div>
+		</div>
+	</form>
+	<!-- Selection Details End -->
+	<!-- flight list end -->
+
+	<!-- Footer Start  -->
+	<footer class=" d-flex justify-content-between px-4"
+		style="background-color: black; margin-top: 50px; height: 60px; width: 100%; color: whitesmoke;">
+		<p class="mt-3 ml-5">
+			<i class="fab fa-facebook-f mr-3"></i><i class="fab fa-twitter ml-2"></i>
+		</p>
+		<p class="mt-3 mr-5">&#169; BookYourTicket PVT. LTD.</p>
+	</footer>
+	<!-- Footer End -->
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+		integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+		crossorigin="anonymous"></script>
+
+	<script>
+
+        let selectedData = "";
+        function findDeparture(id) {
+            console.log(id);
+            document.getElementById('depart').value = id;
+            let departure = id.split("|")
+            console.log(departure);
+            console.log("Departure Before"+ document.getElementById('depart').innerHTML);
+            document.getElementById("depart").innerHTML = `<p>Departure | ${departure[0]} | ${departure[1]} </p>
+                        <p><i class="fa fa-plane mr-2" aria-hidden="true"></i> ${departure[2]} <i
+                                class="fa fa-arrow-right ml-2 mr-2 " aria-hidden="true"></i> ${departure[3]} <b
+                                class="ml-4">&#8377;<span id="departurePrice">${departure[4]}</span></b></p>`;
+
+            var departurePrice = parseInt(document.getElementById("departurePrice").innerText);
+            var returnPrice = parseInt(document.getElementById("returnPrice").innerText);
+            document.getElementById("total").innerText = departurePrice + returnPrice;
+            console.log("Departure "+ document.getElementById('depart').innerHTML);
+        }
+
+        function findReturn(id) {
+            document.getElementById('arrival').value = id;
+            let arrival = id.split("|");
+            console.log(arrival);
+            document.getElementById("return").innerHTML = `<p>Return | ${arrival[0]} | ${arrival[1]} </p>
+                        <p><i class="fa fa-plane mr-2" style="color:white" aria-hidden="true"></i> ${arrival[2]} <i
+                                class="fa fa-arrow-right ml-2 mr-2 " aria-hidden="true"></i> ${arrival[3]} <b
+                                class="ml-4">&#8377;<span id="returnPrice">${arrival[4]}</span></b></p>`;
+            var departurePrice = parseInt(document.getElementById("departurePrice").innerText);
+            var returnPrice = parseInt(document.getElementById("returnPrice").innerText);
+            document.getElementById("total").innerText = departurePrice + returnPrice;
+            console.log(document.getElementById('arrival').value);
+        }
+
+        //form submit
+    </script>
+	<script type="text/javascript">
+        $('.slider').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            centerMode: true,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true,
+                        centerMode: true,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    </script>
+</body>
+
+</html>
