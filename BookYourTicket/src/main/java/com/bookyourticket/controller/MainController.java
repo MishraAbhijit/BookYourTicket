@@ -40,6 +40,7 @@ public class MainController {
 	@GetMapping("/search")
 	public ModelAndView getFlights(HttpSession httpSession, SearchInfo searchInfo) {
 		logger.info("Searching Flights............"+searchInfo);
+		System.out.println("Inside Search =====");
 		System.out.println(searchInfo);
 		ModelAndView modelAndView=null;
 		//If Flight Search One Way
@@ -85,6 +86,7 @@ public class MainController {
 	@GetMapping("/itinerary")
 	public ModelAndView showItinerary(HttpSession httpSession,@RequestParam("id") String id) {
 		// Getting Search Info From HttpSession
+		System.out.println("Inside Itinerary ==== ");
 		SearchInfo searchInfo = (SearchInfo) httpSession.getAttribute("SearchInfo");
 		System.out.println("SearchInfo: " + searchInfo);
 
@@ -112,43 +114,19 @@ public class MainController {
 	@GetMapping("/traveller")
 	public ModelAndView showTravellerInfo(HttpSession httpSession,@RequestParam("insurance") String insurance)
 	{
+		System.out.println("Inside Traveller ==== ");
 		ModelAndView modelAndView = new ModelAndView("travellers");
 		return modelAndView;
 	}
-	@RequestMapping("/login")
-	public ModelAndView showLogin(HttpSession session)
+				
+	//Show Payment Page
+	@GetMapping("/payment")
+	public ModelAndView showPayment(HttpSession httpSession,@RequestParam("mobile") String mobile, @RequestParam("email") String email)
 	{
-		logger.info("===== Inside Show Login =====");
-		System.out.println(".... Login .....");
-		ModelAndView modelAndView = new ModelAndView("login");
+		System.out.println("==== Show Payment =====");
+		System.out.println("Mobile===== "+mobile);
+		System.out.println("Email===== "+email);
+		ModelAndView modelAndView = new ModelAndView("payment");
 		return modelAndView;
 	}
-	
-	@RequestMapping("/registration")
-	public ModelAndView showSignup(HttpSession session)
-	{
-		logger.info("===== Inside Show SignUp =====");
-		ModelAndView modelAndView = new ModelAndView("signup");
-		return modelAndView;
-	}
-	
-	@GetMapping("/processSignUp")
-	public ModelAndView processSignup(HttpSession session,User user)
-	{
-		logger.info("===== Processing SignUp =====");
-		System.out.println(user);
-		ModelAndView modelAndView = new ModelAndView("login");
-		return modelAndView;
-	}
-	
-	@GetMapping("/processLogin")
-	public ModelAndView processLogin(HttpSession session,Login login)
-	{
-		logger.info("===== Process Login =====");
-		System.out.println(login);
-		ModelAndView modelAndView = new ModelAndView("index");
-		return modelAndView;
-	}
-	
-	
 }
